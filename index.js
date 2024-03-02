@@ -3,23 +3,22 @@
  ---------------------------------------- */
 
 const handleFirstTab = (e) => {
-  if(e.key === 'Tab') {
-    document.body.classList.add('user-is-tabbing')
+  if (e.key === "Tab") {
+    document.body.classList.add("user-is-tabbing");
 
-    window.removeEventListener('keydown', handleFirstTab)
-    window.addEventListener('mousedown', handleMouseDownOnce)
+    window.removeEventListener("keydown", handleFirstTab);
+    window.addEventListener("mousedown", handleMouseDownOnce);
   }
-
-}
+};
 
 const handleMouseDownOnce = () => {
-  document.body.classList.remove('user-is-tabbing')
+  document.body.classList.remove("user-is-tabbing");
 
-  window.removeEventListener('mousedown', handleMouseDownOnce)
-  window.addEventListener('keydown', handleFirstTab)
-}
+  window.removeEventListener("mousedown", handleMouseDownOnce);
+  window.addEventListener("keydown", handleFirstTab);
+};
 
-window.addEventListener('keydown', handleFirstTab)
+window.addEventListener("keydown", handleFirstTab);
 
 const backToTopButton = document.querySelector(".back-to-top");
 let isBackToTopRendered = false;
@@ -42,3 +41,33 @@ window.addEventListener("scroll", () => {
   }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  var form = document.getElementById("myForm");
+  var thankYouMessage = document.getElementById("thankYouMessage");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Submit the form to Formspree
+    fetch("https://formspree.io/f/mrgnkjwa", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+      body: new FormData(form),
+    })
+      .then((response) => {
+        if (response.ok) {
+          // Success: Show thank-you message
+          form.style.display = "none";
+          thankYouMessage.style.display = "block";
+        } else {
+          // Error: Log the error or handle as needed
+          console.error("Form submission failed:", response);
+        }
+      })
+      .catch((error) => {
+        console.error("Error during form submission:", error);
+      });
+  });
+});

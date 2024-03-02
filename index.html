@@ -221,31 +221,26 @@
         </section>
       <!-- ***** Contact ***** -->
 
-      <section class="contact" id="contact">
-        <div class="row">
-          <h2>Contact</h2>
-          <div class="contact__info">
-            <p>Feel free to reach out to me via:</p>
-            <ul class="contact__list">
-              <li>
-                <a href="mailto:ftkhan61814@gmail.com" target="_blank">Email</a>
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/fahad-khan-50b141233"
-                  target="_blank"
-                  >LinkedIn</a
-                >
-              </li>
-              <li>
-                <a href="https://github.com/Fahad87667" target="_blank"
-                  >Github</a
-                >
-              </li>
-            </ul>
-          </div>
+      <section id="contact">
+        <div>
+            <h2>Contact Me</h2>
+            <!-- Add an id to the form for easier identification in the script -->
+            <form id="myForm" action="https://formspree.io/f/mrgnkjwa" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="_replyto" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+            <p id="thankYouMessage" class="thank-you-message hidden">Thank you for your message!</p>
         </div>
-      </section>
+    </section>
+
     </main>
 
     <!-- ***** Footer ***** -->
