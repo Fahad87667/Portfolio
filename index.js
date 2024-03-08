@@ -71,3 +71,18 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 });
+// Initialize circular progress bars
+var pythonCircle = new Circles.create({
+  id: 'python',
+  radius: 60,
+  value: 85,
+  maxValue: 100,
+  width: 10,
+  colors: ['#3498db', '#d5d5d5'],
+  duration: 800,
+  text: function (value) {
+    return value + '%';
+  }
+});
+
+// Repeat the above code for other skills with appropriate IDs and values
